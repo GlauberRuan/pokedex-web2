@@ -1,0 +1,220 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: #e3350d; 
+}
+
+/* Usando grid s */
+
+.grid-container {
+    display: grid;
+    /* 5 colunas no computador */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Responsividade */
+@media (max-width: 850px) {
+    .grid-container {
+        /* Em telas médias/tablets, mostra 4 por linha (5 linhas de 4 = 20) */
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        /* No celular, mostra 2 por linha pra não espremer os cards (10 linhas de 2 = 20) */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.pokemon-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-transform: capitalize; /* Deixa a primeira letra maiúscula */
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.pokemon-card:hover {
+    transform: scale(1.05);
+}
+
+.pokemon-card img {
+    max-width: 100%;
+}
+
+.mensagem {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 20px;
+}
+
+/* Estilos da navegação */
+.navegacao {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navegacao button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #e3350d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.navegacao button:hover:not(:disabled) {
+    background-color: #b32a0a;
+}
+
+/* Deixa o botão cinza quando não tem página pra voltar/avançar */
+.navegacao button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Estilos da barra de busca */
+.busca-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; 
+}
+
+.busca-container input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 350px; 
+    max-width: 100%; /* Isso garante que não vai quebrar a tela do celular */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.busca-container button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #3b4cca; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.busca-container button:hover {
+    background-color: #2a3a9c;
+}
+
+/* Estilos do Modal de Detalhes */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro transparente */
+}
+
+.modal-conteudo {
+    background-color: #fefefe;
+    margin: 10% auto; /* Centraliza na tela */
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    text-transform: capitalize;
+}
+
+.fechar {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.fechar:hover {
+    color: #e3350d; /* Vermelho ao passar o mouse */
+}
+
+/* Estilo para as tags de "Tipo" do Pokémon */
+.tipo {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #3b4cca;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* --- Estilos dos Favoritos --- */
+.btn-amarelo {
+    background-color: #ffcb05 !important; /* Amarelo Pokémon */
+    color: #333 !important;
+}
+
+.btn-amarelo:hover {
+    background-color: #c7a008 !important;
+}
+
+#btn-favoritar-modal {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #0de3bf;
+    color: rgb(7, 7, 7);
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+#btn-favoritar-modal.favoritado {
+    background-color: #555; /* Fica cinza se já for favorito */
+}
+
+/* Estilo do Botão Voltar */
+.btn-voltar {
+    background-color: #020835;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-voltar:hover {
+    background-color: #949c2a;
+}

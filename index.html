@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex Arretada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Minha Pokédex</h1>
+        
+        <!-- Adicionei um ID aqui pra gente conseguir esconder esse bloco todo no JS -->
+        <div class="busca-container" id="container-busca">
+            <input type="text" id="input-busca" placeholder="Digite o nome ou ID (ex: pikachu ou 25)">
+            <button id="btn-buscar">Buscar</button>
+            <button id="btn-limpar">Limpar Busca</button>
+            <button id="btn-favoritos" class="btn-amarelo">Meus Favoritos</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- botão de voltar, que começa invisível -->
+        <div id="container-voltar" style="display: none; text-align: center; margin-bottom: 20px;">
+            <button id="btn-voltar-inicio" class="btn-voltar">⬅️ Voltar para a página inicial</button>
+        </div>
+
+        <div id="loading" class="mensagem">Carregando os Pokémon... aguenta aí, boy!</div>
+        
+        <div id="pokedex-container" class="grid-container"></div>
+
+        <div class="navegacao">
+            <button id="btn-anterior" disabled>Anterior</button>
+            <button id="btn-proxima">Próxima</button>
+        </div>
+    </main>
+
+    <div id="modal-detalhes" class="modal">
+        <div class="modal-conteudo">
+            <span id="fechar-modal" class="fechar">&times;</span>
+            <div id="info-pokemon">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
